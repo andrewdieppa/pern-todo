@@ -11,6 +11,8 @@ function App() {
       const res = await fetch('http://localhost:5000/todos');
       const data = await res.json();
 
+      data.sort((todo1, todo2) => todo1.todo_id - todo2.todo_id);
+
       setTodos(data);
     } catch (err) {
       console.error(err.message);

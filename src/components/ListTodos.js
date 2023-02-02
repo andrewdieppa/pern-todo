@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 
+import EditTodo from './EditTodo';
+
 const ListTodos = props => {
   const { fetchTodos, todos } = props;
 
@@ -27,12 +29,12 @@ const ListTodos = props => {
         {todos.map(todo => {
           return (
             <li
-              className="d-flex justify-content-between mb-2 border p-2"
+              className="d-flex justify-content-between mb-2 border-bottom p-2"
               key={todo.todo_id}
             >
               {todo.description}
               <div className="d-flex">
-                <button>Edit</button>
+                <EditTodo todo={todo} />
                 <button
                   className="btn btn-danger"
                   onClick={handleDelete.bind(null, todo.todo_id)}
